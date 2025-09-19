@@ -3,12 +3,18 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 
 import { cocktailLists, mockTailLists } from '../../constants'
+import { SplitText } from 'gsap/all';
 
 
 
 const Cocktails = () => {
 
     useGSAP(() => {
+
+     
+
+        
+        // Timeline for parallax & staggered list animation
         const parallaxTimeline = gsap.timeline({
             scrollTrigger: {
                 trigger: '#cocktails',
@@ -16,16 +22,45 @@ const Cocktails = () => {
                 end: 'bottom 80%',
                 scrub: true,
             }
-        })
-
+        });
+        // Animate images
         parallaxTimeline
             .from ('#c-left-leaf', {
-                x: -200, y: 200
+                x: -100, y: 200
             })
             .from ('#c-right-leaf', {
                 x: 100, y: 100
             })
-    })
+
+
+         // Timeline for list items (cocktails + mocktails)
+        const listItemsTimeline = gsap.timeline({
+            scrollTrigger: {
+                trigger: '#cocktails',
+                start:'top 60%',
+                end: 'bottom 80%',
+                scrub: true,
+            }
+        });
+        listItemsTimeline
+            .from ('.cocktail-item', {
+                yPercent: 100,
+                opacity: 0,
+                duration: 1.5,
+                ease: 'back.out',
+                stagger: 0.2
+            })
+            .from ('.mocktail-item', {
+                yPercent: 100,
+                opacity: 0,
+                duration: 1.5,
+                ease: 'back.out',
+                stagger: 0.2
+            }, '<')
+
+
+
+    });
 
   return (
    <section id='cocktails' className='noisy'>
@@ -40,7 +75,7 @@ const Cocktails = () => {
 
             <ul>
                 {cocktailLists.map((drink) => (
-                    <li key={drink.name}>
+                    <li key={drink.name}  className='cocktail-item'>
                         <div className='md:me-28'>
                             <h3>{drink.name}</h3>
                             <p>{drink.country} | {drink.detail}</p>
@@ -57,7 +92,7 @@ const Cocktails = () => {
 
             <ul>
                 {mockTailLists.map((drink) => (
-                    <li key={drink.name}>
+                    <li key={drink.name} className='mocktail-item'>
                         <div className='me-28'>
                             <h3>{drink.name}</h3>
                             <p>{drink.country} | {drink.detail}</p>

@@ -5,6 +5,8 @@ import gsap from 'gsap'
 import React, { useRef } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
+
+
 const Hero = () => {
 
   const videoRef = useRef();
