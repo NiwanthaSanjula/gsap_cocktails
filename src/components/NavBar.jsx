@@ -36,7 +36,7 @@ const Navbar = () => {
 			   className='flex items-center gap-2'
 			>
 				<img src="/images/logo.png" alt="logo"/>
-				<p className='text-myPurple'>
+				<p className='text-green-600'>
 					Velvet Pour
 				</p>
 			</a>
