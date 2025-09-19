@@ -187,14 +187,14 @@ body {
         }
     }
 
-    /*#about {
+    #about {
         @apply min-h-screen py-28 2xl:px-0 px-5 container mx-auto;
 
         .content {
             @apply grid grid-cols-1 lg:grid-cols-12 gap-5;
 
             h2 {
-                @apply text-5xl md:text-6xl font-modern-negra max-w-lg;
+                @apply text-green-700 text-5xl md:text-6xl font-modern-negra max-w-lg ;
             }
 
             .sub-content {
@@ -208,7 +208,7 @@ body {
                     @apply flex flex-col justify-between md:gap-2 gap-5;
 
                     span {
-                        @apply text-yellow font-bold text-5xl;
+                        @apply text-green-700 font-bold text-5xl;
                     }
                 }
             }
@@ -241,7 +241,7 @@ body {
                 @apply object-cover w-full h-full;
             }
         }
-    }*/
+    }
 
     /*#art {
         @apply flex-center flex-col min-h-dvh p-5 mt-20 relative radial-gradient;
